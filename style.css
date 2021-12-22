@@ -6,9 +6,12 @@
   display: none;
 }
 .facade {
-  background: #333;
+  background: #1b1e20;
+  border-radius: 5px;
   color: #fff;
-  font-family: "Courier New", Courier, monospace;
+  padding: 2px;
+  outline: #36393f;
+  font-family: monospace;
 }
 .blockquote {
   border-left: 4px solid #999;

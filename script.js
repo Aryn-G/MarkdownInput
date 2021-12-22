@@ -96,15 +96,20 @@ var Editor = /** @class */ (function () {
         this.history = [];
         this.current = 0;
         this.previousCommand = 0;
-        this.submit = _submitionCallback.bind(this);
+        this.maxLength = _maxLength;
+        this.submit = _submitionCallback;
+        this.editorElement.focus();
+        this.submit();
+        this.updateHTML(this.previousCommand);
+        Editor.restoreSelection(this.editorElement, {start: this.editorElement.textContent.length, end: this.editorElement.textContent.length});
+        this.updateLength();
         this.pushHistory({
-            textContent: this.editorElement.textContent,
-            selection: {
-                start: this.editorElement.textContent.length,
-                end: this.editorElement.textContent.length
-            }
+          textContent: this.editorElement.textContent,
+          selection: {
+            start: this.editorElement.textContent.length,
+            end: this.editorElement.textContent.length
+          }
         });
-        this.updateHTML(0);
         this.addEventListener(this.editorElement, "keydown", this.handle.bind(this));
         this.addEventListener(this.editorElement, "paste", this.handlePaste.bind(this));
         this.addEventListener(this.editorElement, "input", this.handleInput.bind(this));
@@ -524,13 +529,13 @@ var Editor = /** @class */ (function () {
             this.counterElement.innerText = "";
         }
         else {
-            this.counterElement.innerText = String(500 - value.length);
+            this.counterElement.innerText = String(this.maxLength - value.length);
         }
-        if (500 - value.length <= 0) {
+        if (this.maxLength - value.length <= 0) {
             this.counterElement.classList.add("invalid");
-            this.handleVal(this.editorElement.textContent.slice(0, 500), {
-                start: Math.min(500, pos.start),
-                end: Math.min(500, pos.end)
+            this.handleVal(this.editorElement.textContent.slice(0, this.maxLength), {
+                start: Math.min(this.maxLength, pos.start),
+                end: Math.min(this.maxLength, pos.end)
             });
             return false;
         }
