@@ -1,0 +1,140 @@
+[star] {
+  color: #999;
+  text-decoration: italic;
+}
+[hid] {
+  display: none;
+}
+.facade {
+  background: #333;
+  color: #fff;
+  font-family: "Courier New", Courier, monospace;
+}
+.blockquote {
+  border-left: 4px solid #999;
+  border-radius: -10px;
+  padding: 0 1em;
+  margin: 1em 0;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 50px;
+  background: #36393f;
+}
+::-webkit-scrollbar-thumb {
+  background: #0005;
+  border-radius: 50px;
+  width: 5px;
+  margin: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background: #36393f;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.input {
+  position: relative;
+}
+.edit {
+  background: #40444b;
+  border-radius: 8px;
+  overflow: auto;
+  width: 100%;
+  max-height: 50vh;
+  padding: 10px 50px 10px 10px;
+  color: #ddd;
+  font-size: 25px;
+  border: 10px solid #40444b;
+  outline: none;
+  z-index: 2;
+}
+[contenteditable]:empty::before {
+  content: attr(data-placeholder);
+  user-select: none;
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+  font-size: 25px;
+  color: #999;
+}
+#p {
+  color: #ddd;
+  overflow-wrap: anywhere;
+  font-size: 2em;
+}
+.wrapper {
+  width: 80%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+#countn {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-weight: 400;
+  z-index: 20;
+}
+
+#countn.invalid {
+  color: #f05;
+}
+#tooltip {
+  /* tooltip with arrow */
+  --x: 50;
+  position: absolute;
+  background-color: #2e3338;
+  border: 1px solid #1b1e20;
+  padding: 2px;
+  text-align: center;
+  border-radius: 5px;
+  z-index: 110;
+  transform: translate(calc(-1% * var(--x)), -50%);
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2px;
+}
+#tooltip .after {
+  /* tooltip arrow */
+  /* content: ""; */
+  position: absolute;
+  top: 100%;
+  left: calc(var(--x) * 1%);
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #2e3338 transparent transparent transparent;
+}
+#tooltip button {
+  background: #2e3338;
+  border: none;
+  color: #9da5af;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  width: 37px;
+  height: 37px;
+  transition: all 0.1s;
+}
+#tooltip button:hover {
+  background: #1b1e20;
+}

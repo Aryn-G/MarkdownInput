@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Discord Input</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v6.0.0-beta2/css/all.css"
+    />
+  </head>
+
+  <body>
+    <div id="tooltip">
+      <!-- bold icon inside button with id tooltip-bold -->
+      <button id="tooltip-bold">
+        <i class="fas fa-bold"></i>
+      </button>
+      <!-- italic icon inside button with id tooltip-italic -->
+      <button id="tooltip-italic">
+        <i class="fas fa-italic"></i>
+      </button>
+      <!-- underline icon inside button with id tooltip-underline -->
+      <button id="tooltip-underline">
+        <i class="fas fa-underline"></i>
+      </button>
+      <!-- strikethrough icon inside button with id tooltip-strikethrough -->
+      <button id="tooltip-strikethrough">
+        <i class="fas fa-strikethrough"></i>
+      </button>
+      <!-- code icon inside button with id tooltip-code -->
+      <button id="tooltip-code">
+        <i class="fas fa-code"></i>
+      </button>
+      <div class="after"></div>
+    </div>
+    <div class="wrapper">
+      <div
+        class="edit"
+        id="div"
+        contenteditable
+        spellcheck="false"
+        data-gramm="false"
+        data-placeholder="Type Something..."
+      ></div>
+      <div id="countn"></div>
+    </div>
+    <p id="p"></p>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
